@@ -5,6 +5,3 @@ client_scripts {
   'Scaleforms.lua',
   'drilling.lua',
 }
-dependencies {
-  'meta_libs'
-}
