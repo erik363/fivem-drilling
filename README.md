@@ -9,9 +9,9 @@ RegisterCommand('sf_drilling', function(...)
   TriggerEvent("Drilling:Start",function(result)
     if (result == "success") then
       print("Drilling complete.")
-    elseif (result == "failed")
+    elseif (result == "failed") then
       print("Drilling failed.")
-    elseif (result == "cancel")
+    elseif (result == "cancel") then
       print("Drilling canceled.")
     end
   end)
