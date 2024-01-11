@@ -3,20 +3,20 @@
     https://github.com/meta-hub/meta_libs/blob/master/meta_libs/client/classes/Scaleforms.lua
 ]]
 
-local newScaleforms = function()
+function newScaleforms()
     local self = {}
   
-    self.UnloadMovie = function(scaleform)
+    function self.UnloadMovie(scaleform)
       SetScaleformMovieAsNoLongerNeeded(scaleform)
     end
   
-    self.LoadMovie = function(name)
+    function self.LoadMovie(name)
       local scaleform = RequestScaleformMovie(name)
       while not HasScaleformMovieLoaded(scaleform) do Wait(0); end
       return scaleform
     end
   
-    self.PopFloat = function(scaleform,method,val)
+    function self.PopFloat(scaleform,method,val)
       PushScaleformMovieFunction(scaleform,method)
       PushScaleformMovieFunctionParameterFloat(val)
       PopScaleformMovieFunctionVoid()
