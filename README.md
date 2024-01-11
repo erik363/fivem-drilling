@@ -1,5 +1,4 @@
 # Installation
-- Ensure meta_libs v1.3+ is installed (https://github.com/meta-hub/meta_libs/releases).
 - Extract the `fivem-drilling` folder into your `resources` directory.
 - Add `start fivem-drilling` to your `server.cfg` file.
 - Trigger the drilling event from your script, or test it with the example below.
@@ -7,11 +6,13 @@
 # Example
 ```lua
 RegisterCommand('sf_drilling', function(...)
-  TriggerEvent("Drilling:Start",function(success)
-    if (success) then
+  TriggerEvent("Drilling:Start",function(result)
+    if (result == "success") then
       print("Drilling complete.")
-    else
+    elseif (result == "failed")
       print("Drilling failed.")
+    elseif (result == "cancel")
+      print("Drilling canceled.")
     end
   end)
 end)
